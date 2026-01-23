@@ -8,16 +8,17 @@
 import UIKit
 import SwiftUI
 
-final class AppCoordinator {
+final class AppCoordinator: BaseCoordinator {
     let window: UIWindow
     
     init(window: UIWindow) {
         self.window = window
     }
     
-    func start() {
-        let contentVC = UIHostingController(rootView: TabBar())
-        window.rootViewController = contentVC
+    override func start() {
+        let tabBarCoordinator = TabBarCoordinator(with: navigationController)
+        start(tabBarCoordinator)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 }

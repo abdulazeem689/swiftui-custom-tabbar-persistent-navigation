@@ -10,7 +10,11 @@ import SwiftUI
 class BaseCoordinator: Coordinator {
     weak var parent: (any Coordinator)?
     var children: [any Coordinator] = []
-    var navigationController = UINavigationController()
+    let navigationController: UINavigationController
+    
+    init(with navigationController: UINavigationController = UINavigationController()) {
+        self.navigationController = navigationController
+    }
     
     /// Starts the coordinator's navigation flow.
     ///
@@ -26,7 +30,6 @@ class BaseCoordinator: Coordinator {
     /// Call this function to start a new coordinator.
     func start(_ coordinator: any Coordinator) {
         add(child: coordinator)
-        coordinator.navigationController = navigationController
         coordinator.start()
     }
     
