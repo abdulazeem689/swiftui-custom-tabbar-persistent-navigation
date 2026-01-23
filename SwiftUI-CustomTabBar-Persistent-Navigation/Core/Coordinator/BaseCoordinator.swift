@@ -37,7 +37,10 @@ class BaseCoordinator: Coordinator {
     
     /// Call this function to close and finish the coordinator.
     func stop() {
+        // dismiss/pop the view
         close()
+        
+        // remove the coordinator from parent.
         finish()
     }
     
@@ -61,8 +64,16 @@ class BaseCoordinator: Coordinator {
 // MARK: - Navigation functions.
 
 extension BaseCoordinator {
+    func ViewController<T: View>(with view: T) -> UIHostingController<T> {
+        UIHostingController(rootView: view)
+    }
+    func set<T: View>(_ views: T...) {
+        let viewControllers = views.map { ViewController(with: $0) }
+        navigationController.setViewControllers(viewControllers, animated: true)
+    }
+    
     func push<T: View>(view: T) {
-        let viewController = UIHostingController(rootView: view)
+        let viewController = ViewController(with: view)
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -81,7 +92,7 @@ extension BaseCoordinator {
     }
     
     func present<T: View>(view: T) {
-        let viewController = UIHostingController(rootView: view)
+        let viewController = ViewController(with: view)
         navigationController.present(viewController, animated: true)
     }
     
