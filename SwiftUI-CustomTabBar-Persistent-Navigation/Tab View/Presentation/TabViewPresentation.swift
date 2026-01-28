@@ -20,7 +20,7 @@ extension Tabview {
             }
         }
         
-        // represents tab name
+        /// represents tab name
         var name: String {
             switch self {
             case .home: "Home"
