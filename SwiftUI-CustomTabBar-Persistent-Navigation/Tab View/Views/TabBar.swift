@@ -18,6 +18,8 @@ struct TabBar: View {
                 }
             }
         }
+        .padding(.top, .space12)
+        .background(.ultraThinMaterial)
     }
 }
 

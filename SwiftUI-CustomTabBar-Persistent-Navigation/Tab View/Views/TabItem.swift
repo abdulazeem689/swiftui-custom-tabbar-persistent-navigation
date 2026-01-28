@@ -10,10 +10,15 @@ import SwiftUI
 struct TabItem: View {
     let tab: Tabview.Tab
     var body: some View {
-        VStack {
+        VStack(spacing: .space4) {
             Image(systemName: tab.icon.name)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: .size24)
             Text(tab.name)
+                .font(.caption)
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
