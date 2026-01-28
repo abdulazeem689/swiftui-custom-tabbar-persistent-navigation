@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct TabBar: View {
+    @Binding var selectedTab: Tabview.Tab
+    
     var body: some View {
         HStack {
-            ForEach(Tab.allCases, id: \.self) { tab in
-                TabItem(tab: tab)
+            ForEach(Tabview.Tab.allCases, id: \.self) { tab in
+                Button(action: { selectedTab = tab }) {
+                    TabItem(tab: tab)
+                }
             }
         }
     }
 }
 
 #Preview {
-    TabBar()
+    TabBar(selectedTab: .constant(.home))
 }
+

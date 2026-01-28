@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabItem: View {
-    let tab: TabBar.Tab
+    let tab: Tabview.Tab
     var body: some View {
         VStack {
             Image(systemName: tab.icon.name)

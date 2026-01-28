@@ -7,7 +7,7 @@
 
 // MARK: - Tabs
 
-extension TabBar {
+extension Tabview {
     enum Tab: CaseIterable {
         case home
         case settings

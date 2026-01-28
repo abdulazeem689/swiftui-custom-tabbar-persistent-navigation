@@ -13,12 +13,12 @@ final class TabBarCoordinator: BaseCoordinator {
         let profileCoordinator = ProfileCoordinator()
         start(profileCoordinator)
         
-        let homeView = HostView(coordinator: homeCoordinator)
-        let profileView = HostView(coordinator: homeCoordinator)
+        let homeHost = HostView(coordinator: homeCoordinator)
+        let profileHost = HostView(coordinator: profileCoordinator)
         
-        let tabView = TabContainerView(
-            home: homeView,
-            profile: profileView
+        let tabView = Tabview(
+            homeHost: homeHost,
+            profileHost: profileHost
         )
         
         set(tabView)
