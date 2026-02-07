@@ -9,19 +9,22 @@ import SwiftUI
 
 struct TabItem: View {
     let tab: Tabview.Tab
+    let state: Tabview.Tab.State
+    
     var body: some View {
         VStack(alignment: .center, spacing: .space4) {
-            Image(systemName: tab.icon.name)
+            Image(systemName: tab.icon(for: state))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: .size24)
             Text(tab.name)
                 .font(.caption)
         }
+        .foregroundStyle(tab.foreground(for: state))
         .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    TabItem(tab: .home)
+    TabItem(tab: .home, state: .unselcted)
 }

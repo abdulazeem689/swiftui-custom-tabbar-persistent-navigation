@@ -9,7 +9,9 @@ enum Icon {
     /// represents system icon.
     enum System: String {
         case home = "house"
-        case settings = "gear"
+        case profile = "person"
+        case homeFill = "house.fill"
+        case profileFill = "person.fill"
         
         var name: String {
             self.rawValue

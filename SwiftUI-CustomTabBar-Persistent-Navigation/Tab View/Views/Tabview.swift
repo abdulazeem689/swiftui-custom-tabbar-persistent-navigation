@@ -18,7 +18,7 @@ struct Tabview: View {
             switch selectedTab {
             case .home:
                 homeHost
-            case .settings:
+            case .profile:
                 profileHost
             }
             

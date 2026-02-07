@@ -14,12 +14,15 @@ struct TabBar: View {
         HStack {
             ForEach(Tabview.Tab.allCases, id: \.self) { tab in
                 Button(action: { selectedTab = tab }) {
-                    TabItem(tab: tab)
+                    TabItem(
+                        tab: tab,
+                        state: Tabview.Tab.State(if: selectedTab == tab))
                 }
+                .buttonStyle(.plain)
             }
         }
         .padding(.top, .space12)
-        .background(.ultraThinMaterial)
+        .background(.regularMaterial)
     }
 }
 
