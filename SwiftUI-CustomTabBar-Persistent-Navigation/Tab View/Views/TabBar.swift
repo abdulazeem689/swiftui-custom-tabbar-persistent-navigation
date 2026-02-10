@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct TabBar: View {
-    @Binding var selectedTab: Tabview.Tab
+    let selectedTab: Tab
+    let onSelect: (Tab) -> Void
     
     var body: some View {
         HStack {
-            ForEach(Tabview.Tab.allCases, id: \.self) { tab in
-                Button(action: { selectedTab = tab }) {
+            ForEach(Tab.allCases, id: \.self) { tab in
+                Button(action: { onSelect(tab) }) {
                     TabItem(
                         tab: tab,
-                        state: Tabview.Tab.State(if: selectedTab == tab))
+                        state: Tab.State(if: selectedTab == tab))
                 }
                 .buttonStyle(.plain)
             }
@@ -27,6 +28,6 @@ struct TabBar: View {
 }
 
 #Preview {
-    TabBar(selectedTab: .constant(.home))
+    TabBar(selectedTab: .home, onSelect: { _ in })
 }
 

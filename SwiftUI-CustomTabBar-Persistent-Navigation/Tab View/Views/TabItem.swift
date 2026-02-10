@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TabItem: View {
-    let tab: Tabview.Tab
-    let state: Tabview.Tab.State
+    let tab: Tab
+    let state: Tab.State
     
     var body: some View {
         VStack(alignment: .center, spacing: .space4) {

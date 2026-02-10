@@ -11,18 +11,18 @@ struct Tabview: View {
     let homeHost: HostView
     let profileHost: HostView
     
-    @State var selectedTab = Tab.home
+    @ObservedObject var viewModel = TabViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            switch selectedTab {
+            switch viewModel.selectedTab {
             case .home:
                 homeHost
             case .profile:
                 profileHost
             }
             
-            TabBar(selectedTab: $selectedTab)
+            TabBar(selectedTab: viewModel.selectedTab, onSelect: viewModel.onSelect)
         }
     }
 }
