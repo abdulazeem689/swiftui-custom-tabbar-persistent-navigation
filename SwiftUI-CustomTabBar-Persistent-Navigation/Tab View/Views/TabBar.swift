@@ -22,7 +22,8 @@ struct TabBar: View {
                 .buttonStyle(.plain)
             }
         }
-        .frame(height: .size48)
+        .padding(.top, .space12)
+        .padding(.bottom, .space20)
         .background(.regularMaterial)
     }
 }

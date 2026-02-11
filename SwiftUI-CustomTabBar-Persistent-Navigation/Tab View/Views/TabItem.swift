@@ -13,7 +13,6 @@ struct TabItem: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: .zero) {
-            Spacer()
             Image(systemName: tab.icon(for: state))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -24,6 +23,7 @@ struct TabItem: View {
         }
         .foregroundStyle(tab.foreground(for: state))
         .frame(maxWidth: .infinity)
+        .frame(height: .size40)
     }
 }
 

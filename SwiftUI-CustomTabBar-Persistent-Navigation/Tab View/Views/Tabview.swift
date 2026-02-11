@@ -26,6 +26,7 @@ struct Tabview: View {
             
             TabBar(selectedTab: viewModel.selectedTab, onSelect: viewModel.onSelect)
         }
+        .ignoresSafeArea(.container, edges: .bottom)
     }
 }
 
