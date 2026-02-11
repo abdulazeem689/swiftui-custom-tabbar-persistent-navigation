@@ -12,6 +12,7 @@ enum Icon {
         case profile = "person"
         case homeFill = "house.fill"
         case profileFill = "person.fill"
+        case create = "plus.circle"
         
         var name: String {
             self.rawValue

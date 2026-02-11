@@ -12,13 +12,15 @@ struct TabItem: View {
     let state: Tab.State
     
     var body: some View {
-        VStack(alignment: .center, spacing: .space4) {
+        VStack(alignment: .center, spacing: .zero) {
+            Spacer()
             Image(systemName: tab.icon(for: state))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: .size24)
-            Text(tab.name)
-                .font(.caption)
+            if tab.name != "" {
+                Text(tab.name)
+                    .font(.caption2)
+            }
         }
         .foregroundStyle(tab.foreground(for: state))
         .frame(maxWidth: .infinity)

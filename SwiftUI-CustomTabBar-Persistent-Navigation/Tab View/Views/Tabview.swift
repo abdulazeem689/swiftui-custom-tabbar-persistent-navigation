@@ -20,6 +20,8 @@ struct Tabview: View {
                 homeHost
             case .profile:
                 profileHost
+            default:
+                homeHost
             }
             
             TabBar(selectedTab: viewModel.selectedTab, onSelect: viewModel.onSelect)

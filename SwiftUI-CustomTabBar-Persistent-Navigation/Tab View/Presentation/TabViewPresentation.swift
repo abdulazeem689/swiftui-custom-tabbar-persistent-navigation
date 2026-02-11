@@ -11,6 +11,7 @@ import SwiftUI
 
 enum Tab: CaseIterable {
     case home
+    case createPost
     case profile
     
     /// represents states of the tab.
@@ -27,6 +28,7 @@ enum Tab: CaseIterable {
     var name: String {
         switch self {
         case .home: "Home"
+        case .createPost: ""
         case .profile: "Profile"
         }
     }
@@ -35,6 +37,7 @@ enum Tab: CaseIterable {
     var unselectedIcon: Icon.System {
         switch self {
         case .home: .home
+        case .createPost: .create
         case .profile: .profile
         }
     }
@@ -43,6 +46,7 @@ enum Tab: CaseIterable {
     var selectedIcon: Icon.System {
         switch self {
         case .home: .homeFill
+        case .createPost: .create
         case .profile: .profileFill
         }
     }

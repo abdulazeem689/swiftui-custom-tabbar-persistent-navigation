@@ -8,7 +8,10 @@
 import CoreFoundation
 
 extension CGFloat {
+    static let size20: CGFloat = 20
     static let size24: CGFloat = 24
+    static let size28: CGFloat = 28
     static let size32: CGFloat = 32
     static let size40: CGFloat = 40
+    static let size48: CGFloat = 48
 }

@@ -12,7 +12,7 @@ struct TabBar: View {
     let onSelect: (Tab) -> Void
     
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             ForEach(Tab.allCases, id: \.self) { tab in
                 Button(action: { onSelect(tab) }) {
                     TabItem(
@@ -22,7 +22,7 @@ struct TabBar: View {
                 .buttonStyle(.plain)
             }
         }
-        .padding(.top, .space12)
+        .frame(height: .size48)
         .background(.regularMaterial)
     }
 }
