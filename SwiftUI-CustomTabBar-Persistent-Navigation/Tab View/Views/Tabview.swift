@@ -11,11 +11,11 @@ struct Tabview: View {
     let homeHost: HostView
     let profileHost: HostView
     
-    @ObservedObject var viewModel = TabViewModel()
+    @State var selectedTab = Tab.home
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            switch viewModel.selectedTab {
+            switch selectedTab {
             case .home:
                 homeHost
             case .profile:
@@ -24,9 +24,20 @@ struct Tabview: View {
                 homeHost
             }
             
-            TabBar(selectedTab: viewModel.selectedTab, onSelect: viewModel.onSelect)
+            TabBar(selectedTab: selectedTab, onSelect: onSelect)
         }
         .ignoresSafeArea(.container, edges: .bottom)
+    }
+}
+
+// MARK: - Functions
+
+extension Tabview {
+    private func onSelect(tab: Tab) {
+        if tab == .createPost {
+            return
+        }
+        selectedTab = tab
     }
 }
 
